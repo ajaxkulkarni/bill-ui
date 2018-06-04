@@ -1,0 +1,48 @@
+<h1> Pay Bill for {{getMonth(invoice.month)}} {{invoice.year}} - {{user.name}} </h1>
+
+<hr>
+
+<h3>Paying to - {{user.currentBusiness.name}}</h3>
+
+<hr>
+
+<div class="row">
+    <div class="col-md-offset-4 col-md-8">
+        <p>Invoice Amount - {{invoice.amount}}</p>
+        <p>Pending Amount - {{invoice.pendingBalance}}</p>
+        <p>Credit Amount - {{invoice.creditBalance}}</p>
+        <p>Vendor service charge - {{invoice.serviceCharge}}</p>
+        <p>Internet handling fees - {{invoice.internetFees}}</p>
+        <hr>
+        <h3>Total payable - {{invoice.payable}}</h3>
+        
+        <a href="{{invoice.paymentUrl}}"><button class="btn">Pay</button></a>
+
+    </div>
+
+
+</div>
+
+<hr>
+<br><br>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <th>#</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+            <tr ng-repeat="item in invoice.invoiceItems">
+                <td>{{$index + 1}}</td>
+                <td>{{item.parentItem.name}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.price}}</td>
+
+            </tr>
+
+
+        </table>
+
+    </div>
+</div>

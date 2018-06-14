@@ -60,12 +60,12 @@
         
             <hr>
             <div>
-                <span style="font-size:15px;" ng-repeat="item in invoice.invoiceItems">{{item.parentItem.name}} | Qty : {{item.quantity}}</span><span style="font-size:15px; float :right">INR {{item.price}}</span><br>
+                <span ng-repeat="item in invoice.invoiceItems"><span style="font-size:15px;" >{{item.parentItem.name}} | Qty : {{item.quantity}}</span><span style="font-size:15px; float :right">INR {{item.price}}</span><br></span>
                 <!--<span style="font-size:15px;">Times of India | Qty : 44</span><span style="font-size:15px; float :right">INR XXX.XX</span><br>
                 <span style="font-size:15px;">Loksatta | Qty : 34</span><span style="font-size:15px; float :right">INR XXX.XX</span><br>-->
                 
                 <br>
-                <span style="font-size:15px; float:right;color:#00A6FF">View Details >></span><br>
+                <!--<span style="font-size:15px; float:right;color:#00A6FF">View Details >></span><br>-->
                 <hr>
                 <!--<span style="font-size:15px;">30/05/2018</span><span style="font-size:15px;float:right">INR 05.00</span><br>
                 <span> Sakal : 1 | Times of India : 2</span>

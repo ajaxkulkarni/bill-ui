@@ -54,7 +54,9 @@
             
            <div style="margin-bottom:60px; width:100%; height:auto;">
                
-               <a href="{{invoice.paymentUrl}}"><p style="font-size:25px;float:right;color:#00A6FF"><b>Pay >></b></p></a>
+               <a href="{{invoice.paymentUrl}}" ng-if="invoice.status != 'Credit' "><p style="font-size:25px;float:right;color:#00A6FF"><b>Pay >></b></p></a>
+               
+               <p span ng-if="invoice.status == 'Credit'" style="font-size:25px;float:right;color:#009900"><b>Paid</b></p>
             
             </div>
         

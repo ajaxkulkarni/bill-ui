@@ -1,6 +1,6 @@
 angular.module("app").controller('invoice', function ($scope, userService, $routeParams, $location) {
 
-    console.log("Invoice loaded .." + $routeParams.id);
+    //console.log("Invoice loaded .." + $routeParams.id);
     $scope.root = root;
 
     var months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -13,7 +13,7 @@ angular.module("app").controller('invoice', function ($scope, userService, $rout
 
     $scope.getInvoice = function() {
         userService.callService($scope, "sendInvoice").then(function (response) {
-            console.log(response);
+            //console.log(response);
             if (response.status == 200) {
                 $scope.invoice = response.invoice;
                 $scope.user = response.user;

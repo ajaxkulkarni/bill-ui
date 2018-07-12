@@ -17,6 +17,7 @@ angular.module("app").controller('invoice', function ($scope, userService, $rout
             if (response.status == 200) {
                 $scope.invoice = response.invoice;
                 $scope.user = response.user;
+                //
             } else {
                 alert(response.response);
             }
@@ -25,6 +26,10 @@ angular.module("app").controller('invoice', function ($scope, userService, $rout
     }
 
 
+    $scope.submitHdfc = function() {
+        document.redirect.submit();
+    }
+    
     $scope.getMonth = function(number) {
         return months[number - 1];
     }
@@ -42,12 +47,19 @@ angular.module("app").controller('payment', function ($scope, userService, $rout
     $scope.status = "";
     $scope.paymentId = $routeParams.id;
     
+    var vendor = "";
+    
+    if($routeParams.vendor != null) {
+       vendor = $routeParams.vendor.split("+").join(" "); 
+    }
+    
+    
     if($routeParams.status == 'Credit') {
         $scope.status = "Successful";
-        $scope.message = "Your payment of Rs. " + $routeParams.amount + " to the vendor " + $routeParams.vendor + " is completed successfully!";
+        $scope.message = "Your payment of Rs. " + $routeParams.amount + " to the vendor " + vendor  + " is completed successfully!";
     } else {
         $scope.status = "Failed";
-        $scope.message = "Your payment of Rs. " + $routeParams.amount + " to the vendor " + $routeParams.vendor + " is failed! Please contact our customer support for more info and mention the given Payment ID for reference.";
+        $scope.message = "Your payment of Rs. " + $routeParams.amount + " to the vendor " + vendor + " is failed! Please contact our customer support for more info and mention the given Payment ID for reference.";
     }
     
     

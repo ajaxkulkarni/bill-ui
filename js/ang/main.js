@@ -50,6 +50,10 @@ app.config(function ($routeProvider) {
         .when("/invoice/:id", {
             controller: "invoice",
             templateUrl: "PPB_Payment.html"
+        }) //For HDFC
+        .when("/hdfc/invoice/:id", {
+            controller: "invoice",
+            templateUrl: "PPB_Payment_hdfc.html"
         })
         .when("/login", {
             controller: "login",

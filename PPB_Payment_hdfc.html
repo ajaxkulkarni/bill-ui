@@ -53,23 +53,25 @@
 
                 </div>
 
-                <div style="margin-bottom:60px; width:100%; height:auto;">
+                <!--<div style="margin-bottom:60px; width:100%; height:auto;">
 
-                    <a href="{{invoice.paymentUrl}}" ng-if="invoice.status != 'Credit' ">
+                    <a href="{{invoice.paymentUrl}}"  >
                         <p style="font-size:25px;float:right;color:#00A6FF"><b>Pay >></b></p>
                     </a>
 
                     <p span ng-if="invoice.status == 'Credit'" style="font-size:25px;float:right;color:#009900"><b>Paid</b></p>
 
-                </div>
+                </div>-->
 
-                {{invoice.hdfcPaymentUrl}}
-                <form id="nonseamless" method="post" name="redirect" action="https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction">
+                
+                <form ng-if="invoice.status != 'Credit' " id="nonseamless" method="post" name="redirect" action="https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction">
                     <input type="hidden" id="encRequest" name="encRequest" value="{{invoice.hdfcRequest}}">
                     <input type="hidden" name="access_code" id="access_code" value="{{invoice.hdfcAccessCode}}">
                     <!--<script language='javascript'>document.redirect.submit();</script>-->
-                    <input type="submit" value="PAY HDFC">
+                    <input type="submit" value="MAKE PAYMENT">
                 </form>
+                
+                <p span ng-if="invoice.status == 'Credit'" style="font-size:25px;float:right;color:#009900"><b>Paid</b></p>
 
                 <hr>
                 <div>

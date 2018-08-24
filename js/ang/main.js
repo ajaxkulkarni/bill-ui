@@ -55,6 +55,10 @@ app.config(function ($routeProvider) {
             controller: "invoice",
             templateUrl: "PPB_Payment_hdfc.html"
         })
+        .when("/atom/invoice/:id", {
+            controller: "invoice",
+            templateUrl: "PPB_Payment_atom.html"
+        })
         .when("/login", {
             controller: "login",
             templateUrl: "login.html"

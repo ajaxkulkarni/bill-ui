@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="PayPerBill_style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+
+</head>
+
+<body style="font-family: 'Lato', sans-serif;">
+
+
+
+
+    <br>
+
+
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-sm-4 col-sm-offset-4 ">
+
+                <h3>Bill Details for {{getMonth(invoice.month)}} {{invoice.year}}</h3>
+                <span style="font-size:15px; font-weight:100;">Invoice No : </span><span style="font-size:15px;">{{invoice.id}}</span><br>
+                <span style="font-size:15px; font-weight:100;">Customer Name : </span><span style="font-size:15px;">{{user.name}}</span><br>
+                <span style="font-size:15px; font-weight:100;">Vendor Name : </span><span style="font-size:15px;">{{user.currentBusiness.name}}</span>
+
+
+                <hr>
+
+                <span style="font-size:15px;">Invoice amount</span><span style="font-size:15px; float :right">INR {{invoice.amount}}</span><br>
+                <span style="font-size:15px;">Pending amount</span><span style="font-size:15px; float :right">INR {{invoice.pendingBalance}}</span><br>
+                <span style="font-size:15px;">Credit amount</span><span style="font-size:15px; float :right">INR {{invoice.creditBalance}}</span><br>
+                <span style="font-size:15px;">Vendor service charges</span><span style="font-size:15px; float :right">INR {{invoice.serviceCharge}}</span><br>
+                <span style="font-size:15px;">Internet handling fees</span><span style="font-size:15px; float :right">INR {{invoice.internetFees}}</span><br>
+
+
+
+                <div style="width:100%; background-color:#DCDCDC; margin-top:10px;margin-bottom:5px; padding:5px; border-radius:13px:">
+                    <span style="font-size:15px;">Net Amount</span><br>
+                    <span style="font-size:20px;">INR {{invoice.payable}}</span>
+
+
+                </div>
+
+                <div style="margin-bottom:60px; width:100%; height:auto;">
+
+                    <a href="{{invoice.atomPaymentUrl}}"  ng-if="invoice.status != 'Credit' ">
+                        <p style="font-size:25px;float:right;color:#00A6FF"><b>Pay >></b></p>
+                    </a>
+
+                    <p span ng-if="invoice.status == 'Credit'" style="font-size:25px;float:right;color:#009900"><b>Paid</b></p>
+
+                </div>
+
+
+                <p span ng-if="invoice.status == 'Credit'" style="font-size:25px;float:right;color:#009900"><b>Paid</b></p>
+
+                <hr>
+                <div>
+                    <span ng-repeat="item in invoice.invoiceItems"><span style="font-size:15px;" >{{item.parentItem.name}} | Qty : {{item.quantity}}</span><span style="font-size:15px; float :right">INR {{item.price}}</span><br></span>
+
+
+                    <br>
+                    <!--<span style="font-size:15px; float:right;color:#00A6FF">View Details >></span><br>-->
+                    <hr>
+
+                    <hr>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

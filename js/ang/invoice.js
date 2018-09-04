@@ -17,6 +17,7 @@ angular.module("app").controller('invoice', function ($scope, userService, $rout
             if (response.status == 200) {
                 $scope.invoice = response.invoice;
                 $scope.user = response.user;
+                $('#redirectForm').attr('action', $scope.invoice.cashFreePaymentUrl);
                 //
             } else {
                 alert(response.response);

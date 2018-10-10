@@ -70,7 +70,7 @@
                         <input type="hidden" name="customerEmail" value="{{user.email}}" />
                         <input type="hidden" name="customerPhone" value="{{user.phone}}" />
                         <input type="hidden" name="returnUrl" value="{{invoice.cashFreeRedirectUrl}}" />
-                        <!--<input type="text" name="notifyUrl" value="" />-->
+                        <input type="hidden" name="notifyUrl" value="{{invoice.cashFreeRedirectUrl}}" />
                         <input type="hidden" name="signature" value="{{invoice.cashfreeSignature}}" />
                         
                         <input type="submit" style="font-size:25px;float:right;color:#00A6FF" value="PAY"><!--<b>Pay >></b>-->
@@ -86,7 +86,7 @@
                 <p span ng-if="invoice.status == 'Credit'" style="font-size:25px;float:right;color:#009900"><b>Paid</b></p>
 
                 <hr>
-                <div>
+                <div ng-if="user.showBillDetails != 'N' && user.currentBusiness.showBillDetails != 'N'">
                     <span ng-repeat="item in invoice.invoiceItems"><span style="font-size:15px;" >{{item.parentItem.name}} | Qty : {{item.quantity}}</span><span style="font-size:15px; float :right">INR {{item.price}}</span><br></span>
 
 

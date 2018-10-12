@@ -31,6 +31,7 @@
         <div class="row ">
             <div class="col-sm-4 col-sm-offset-4 ">
 
+                <img src="{{root}}getImage/logo/{{user.currentBusiness.id}}" style="height:100px;width:150px" ng-if="user.currentBusiness.logo.fileName != null">
                 <h3>Bill Details for {{getMonth(invoice.month)}} {{invoice.year}}</h3>
                 <span style="font-size:15px; font-weight:100;">Invoice No : </span><span style="font-size:15px;">{{invoice.id}}</span><br>
                 <span style="font-size:15px; font-weight:100;">Customer Name : </span><span style="font-size:15px;">{{user.name}}</span><br>

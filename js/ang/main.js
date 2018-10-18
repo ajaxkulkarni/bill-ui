@@ -7,6 +7,7 @@ app.config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
 //var host = "http://localhost:8080/billapp-service";
 var host = "https://payperbill.in:8443/billapp";
 var root = host + "/user/";
+var rootCustomer = host + "/customer/"
 //var projectRoot = host + "/projectService"
 //var rootAdmin = host + "/adminService";
 
@@ -35,6 +36,25 @@ app.service('userService', function ($http, $q) {
         response = defer.promise;
         return $q.when(response);
     }
+    
+    this.callCustomerService = function ($scope, method) {
+        var defer = $q.defer();
+        var url = rootCustomer + method;
+        var res = $http.post(url, $scope.dataObj);
+        res.success(function (data, status, headers, config) {
+            response = data;
+            defer.resolve(response);
+            
+        });
+        res.error(function (data, status, headers, config) {
+            response = data;
+            defer.resolve(response);
+            console.log("Error :" + status + ":" + JSON.stringify(data) + ":" + JSON.stringify(headers))
+        });
+
+        response = defer.promise;
+        return $q.when(response);
+    }
 
     this.logout = function () {
 
@@ -42,6 +62,8 @@ app.service('userService', function ($http, $q) {
 
 
 });
+
+
 
 
 
@@ -70,6 +92,14 @@ app.config(function ($routeProvider) {
         .when("/payment/:status/:vendor/:amount/:id", {
             controller: "payment",
             templateUrl: "payment_result.html"
+        })
+        .when("/invoice/status/:id", {
+            controller: "paymentResult",
+            templateUrl: "payment_result_offers.html"
+        })
+        .when("/verifyCoupon", {
+            controller: "verifyCoupon",
+            templateUrl: "coupon_verify.html"
         })
         
 });

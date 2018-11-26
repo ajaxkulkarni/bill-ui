@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Bootstrap 101 Template</title>
 
@@ -23,7 +23,6 @@
 
     <style>
         #paytmButton {}
-
     </style>
 
 
@@ -59,6 +58,19 @@
                 <br>
 
                 <span ng-if="invoice.outstandingBalance > 0"><span style="font-size:15px;">Outstanding balance</span><span style="font-size:15px; float :right">INR {{invoice.outstandingBalance}}</span><br></span>
+                
+                <hr>
+                <div ng-if="user.showBillDetails != 'N' && user.currentBusiness.showBillDetails != 'N'">
+                    <span><b>Details</b><hr></span>
+                    <span ng-repeat="item in invoice.invoiceItems"><span style="font-size:15px;" >{{item.parentItem.name}} | Qty : {{item.quantity}}</span><span style="font-size:15px; float :right">INR {{item.price}}</span><br><hr></span>
+
+
+                    
+                    <!--<span style="font-size:15px; float:right;color:#00A6FF">View Details >></span><br>-->
+                    <!--<hr>-->
+
+                    
+                </div>
 
 
                 <div style="width:100%; background-color:#DCDCDC; margin-top:10px;margin-bottom:5px; padding:5px; border-radius:13px:">
@@ -122,17 +134,7 @@
 
                 <p span ng-if="invoice.status == 'Credit'" style="font-size:25px;float:right;color:#009900"><b>Paid</b></p>
 
-                <hr>
-                <div ng-if="user.showBillDetails != 'N' && user.currentBusiness.showBillDetails != 'N'">
-                    <span ng-repeat="item in invoice.invoiceItems"><span style="font-size:15px;" >{{item.parentItem.name}} | Qty : {{item.quantity}}</span><span style="font-size:15px; float :right">INR {{item.price}}</span><br></span>
-
-
-                    <br>
-                    <!--<span style="font-size:15px; float:right;color:#00A6FF">View Details >></span><br>-->
-                    <hr>
-
-                    <hr>
-                </div>
+                
 
 
             </div>

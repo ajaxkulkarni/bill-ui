@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="PayPerBill_style.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
+    <style>
+        #paytmButton {}
+
+    </style>
+
 
 </head>
 
@@ -41,14 +46,14 @@
                 <hr>
 
                 <span style="font-size:15px;">Invoice amount</span><span style="font-size:15px; float :right">INR {{invoice.amount}}</span><br>
-                <span style="font-size:15px;">Pending amount</span><span style="font-size:15px; float :right">INR {{invoice.pendingBalance}}</span><br>
-                <span style="font-size:15px;">Credit amount</span><span style="font-size:15px; float :right">INR {{invoice.creditBalance}}</span><br>
-                <span style="font-size:15px;">Vendor service charges</span><span style="font-size:15px; float :right">INR {{invoice.serviceCharge}}</span><br>
-                <span style="font-size:15px;">Internet handling fees</span><span style="font-size:15px; float :right">INR {{invoice.internetFees}}</span><br>
+                <span ng-if="invoice.pendingBalance > 0"><span style="font-size:15px;" >Pending amount</span><span style="font-size:15px; float :right">INR {{invoice.pendingBalance}}</span><br></span>
+                <span ng-if="invoice.creditBalance > 0"><span style="font-size:15px;">Credit amount</span><span style="font-size:15px; float :right">INR {{invoice.creditBalance}}</span><br></span>
+                <span ng-if="invoice.serviceCharge > 0"><span style="font-size:15px;" >Vendor service charges</span><span style="font-size:15px; float :right">INR {{invoice.serviceCharge}}</span><br></span>
+                <span ng-if="invoice.internetFees > 0"><span style="font-size:15px;" >Internet handling fees</span><span style="font-size:15px; float :right">INR {{invoice.internetFees}}</span><br></span>
 
                 <br>
-                
-                <span style="font-size:15px;">Outstanding balance</span><span style="font-size:15px; float :right">INR {{invoice.outstandingBalance}}</span><br>
+
+                <span ng-if="invoice.outstandingBalance > 0"><span style="font-size:15px;">Outstanding balance</span><span style="font-size:15px; float :right">INR {{invoice.outstandingBalance}}</span><br></span>
 
 
                 <div style="width:100%; background-color:#DCDCDC; margin-top:10px;margin-bottom:5px; padding:5px; border-radius:13px:">
@@ -58,26 +63,52 @@
 
                 </div>
 
-                <div style="margin-bottom:60px; width:100%; height:auto;" ng-if="invoice.status != 'Credit' ">
+                <div style="margin-bottom:60px; width:100%; height:auto;" class="row" ng-if="invoice.status != 'Credit' ">
 
-                    
-                    <form id="redirectForm" method="post" action="#">
-                        <input type="hidden" name="appId" value="{{invoice.cashFreeAppId}}" />
-                        <input type="hidden" name="orderId" value="{{invoice.cashFreeTxId}}" />
-                        <input type="hidden" name="orderAmount" value="{{invoice.payable}}" />
-                        <input type="hidden" name="orderCurrency" value="INR" />
-                        <input type="hidden" name="orderNote" value="{{invoice.comments}}" />
-                        <input type="hidden" name="customerName" value="{{user.name}}" />
-                        <input type="hidden" name="customerEmail" value="{{user.email}}" />
-                        <input type="hidden" name="customerPhone" value="{{user.phone}}" />
-                        <input type="hidden" name="returnUrl" value="{{invoice.cashFreeRedirectUrl}}" />
-                        <input type="hidden" name="notifyUrl" value="{{invoice.cashFreeRedirectUrl}}" />
-                        <input type="hidden" name="signature" value="{{invoice.cashfreeSignature}}" />
-                        
-                        <input type="submit" style="font-size:25px;float:right;color:#00A6FF" value="PAY"><!--<b>Pay >></b>-->
-                    </form>
+                    <div class="col-md-6">
+                        <form id="redirectForm" method="post" action="#">
+                            <input type="hidden" name="appId" value="{{invoice.cashFreeAppId}}" />
+                            <input type="hidden" name="orderId" value="{{invoice.cashFreeTxId}}" />
+                            <input type="hidden" name="orderAmount" value="{{invoice.payable}}" />
+                            <input type="hidden" name="orderCurrency" value="INR" />
+                            <input type="hidden" name="orderNote" value="{{invoice.comments}}" />
+                            <input type="hidden" name="customerName" value="{{user.name}}" />
+                            <input type="hidden" name="customerEmail" value="{{user.email}}" />
+                            <input type="hidden" name="customerPhone" value="{{user.phone}}" />
+                            <input type="hidden" name="returnUrl" value="{{invoice.cashFreeRedirectUrl}}" />
+                            <input type="hidden" name="notifyUrl" value="{{invoice.cashFreeRedirectUrl}}" />
+                            <input type="hidden" name="signature" value="{{invoice.cashfreeSignature}}" />
 
-                    
+                            <input type="submit" style="font-size:25px;width:100%;background-color:#00A6FF;color:white;border:0px;" value="PAY ONLINE">
+                            <!--<b>Pay >></b>-->
+                        </form>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <form method="post" action="#" name="paytmForm" id="paytmForm">
+                            <input type="hidden" name="MID" value="{{invoice.paytmMid}}">
+                            <input type="hidden" name="WEBSITE" value="{{invoice.paytmWebsite}}">
+                            <input type="hidden" name="ORDER_ID" value="{{invoice.cashFreeTxId}}">
+                            <input type="hidden" name="CUST_ID" value="{{user.id}}">
+                            <input type="hidden" name="MOBILE_NO" value="{{user.phone}}">
+                            <input type="hidden" name="EMAIL" value="{{user.email}}">
+                            <input type="hidden" name="INDUSTRY_TYPE_ID" value="Retail">
+                            <input type="hidden" name="CHANNEL_ID" value="{{invoice.paytmChannel}}">
+                            <input type="hidden" name="TXN_AMOUNT" value="{{invoice.payable}}">
+                            <input type="hidden" name="CALLBACK_URL" value="{{invoice.paytmRedirectUrl}}">
+                            <input type="hidden" name="CHECKSUMHASH" value="{{invoice.paytmChecksum}}">
+
+                            <!--<input type="submit" value="" id="paytmButton">-->
+
+                            <input type="image" src="img/paytm_icon.png" alt="PayTm Pay" id="paytmButton">
+
+                        </form>
+
+
+                    </div>
+
+
 
                     <!--<p span ng-if="invoice.status == 'Credit'" style="font-size:25px;float:right;color:#009900"><b>Paid</b></p>-->
 

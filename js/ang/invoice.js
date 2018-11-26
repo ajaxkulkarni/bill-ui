@@ -18,6 +18,7 @@ angular.module("app").controller('invoice', function ($scope, userService, $rout
                 $scope.invoice = response.invoice;
                 $scope.user = response.user;
                 $('#redirectForm').attr('action', $scope.invoice.cashFreePaymentUrl);
+                $("#paytmForm").attr('action', $scope.invoice.paytmUrl);
                 //
             } else {
                 alert(response.response);

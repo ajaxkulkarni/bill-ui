@@ -61,7 +61,7 @@
                 
                 <hr>
                 <div ng-if="user.showBillDetails != 'N' && user.currentBusiness.showBillDetails != 'N'">
-                    <span><b>Details</b><hr></span>
+                    <span ng-if="invoice.invoiceItems.length > 0"><b>Details</b><hr></span>
                     <span ng-repeat="item in invoice.invoiceItems"><span style="font-size:15px;" >{{item.parentItem.name}} | Qty : {{item.quantity}}</span><span style="font-size:15px; float :right">INR {{item.price}}</span><br><hr></span>
 
 

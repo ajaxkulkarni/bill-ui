@@ -14,6 +14,7 @@ var rootCustomer = host + "/customer/"
 
 
 // Initialize Firebase
+/*
 var config = {
     apiKey: "AIzaSyAZdyvqPoQfyyBc6gouksAD8y515IJofHE",
     authDomain: "billapp-9b729.firebaseapp.com",
@@ -23,6 +24,7 @@ var config = {
     messagingSenderId: "440243964879"
 };
 firebase.initializeApp(config);
+*/
 
 
 

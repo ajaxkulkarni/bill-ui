@@ -7,17 +7,29 @@ app.config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
 //var host = "http://localhost:8080/billapp-service";
 var host = "https://payperbill.in:8443/billapp";
 var root = host + "/user/";
+var rootAdmin = host + "/admin/"
 var rootCustomer = host + "/customer/"
 //var projectRoot = host + "/projectService"
 //var rootAdmin = host + "/adminService";
 
+
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAZdyvqPoQfyyBc6gouksAD8y515IJofHE",
+    authDomain: "billapp-9b729.firebaseapp.com",
+    databaseURL: "https://billapp-9b729.firebaseio.com",
+    projectId: "billapp-9b729",
+    storageBucket: "billapp-9b729.appspot.com",
+    messagingSenderId: "440243964879"
+};
+firebase.initializeApp(config);
 
 
 
 app.service('userService', function ($http, $q) {
 
     var response = {};
-    
+
     this.callService = function ($scope, method) {
         var defer = $q.defer();
         var url = root + method;
@@ -25,7 +37,7 @@ app.service('userService', function ($http, $q) {
         res.success(function (data, status, headers, config) {
             response = data;
             defer.resolve(response);
-            
+
         });
         res.error(function (data, status, headers, config) {
             response = data;
@@ -36,7 +48,7 @@ app.service('userService', function ($http, $q) {
         response = defer.promise;
         return $q.when(response);
     }
-    
+
     this.callCustomerService = function ($scope, method) {
         var defer = $q.defer();
         var url = rootCustomer + method;
@@ -44,7 +56,7 @@ app.service('userService', function ($http, $q) {
         res.success(function (data, status, headers, config) {
             response = data;
             defer.resolve(response);
-            
+
         });
         res.error(function (data, status, headers, config) {
             response = data;
@@ -101,7 +113,11 @@ app.config(function ($routeProvider) {
             controller: "verifyCoupon",
             templateUrl: "coupon_verify.html"
         })
-        
+        .when("/:phone/customer", {
+            controller: "customerInfo",
+            templateUrl: "customer_data_entry.html"
+        })
+
 });
 
 
@@ -144,4 +160,3 @@ app.directive('fileModel', ['$parse', function ($parse) {
         }
     };
 }]);
-

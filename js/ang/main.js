@@ -14,17 +14,17 @@ var rootCustomer = host + "/customer/"
 
 
 // Initialize Firebase
-/*
+
 var config = {
     apiKey: "AIzaSyAZdyvqPoQfyyBc6gouksAD8y515IJofHE",
-    authDomain: "billapp-9b729.firebaseapp.com",
+    authDomain: "https://billapp-9b729.firebaseapp.com",
     databaseURL: "https://billapp-9b729.firebaseio.com",
     projectId: "billapp-9b729",
-    storageBucket: "billapp-9b729.appspot.com",
+    storageBucket: "https://billapp-9b729.appspot.com",
     messagingSenderId: "440243964879"
 };
 firebase.initializeApp(config);
-*/
+
 
 
 

@@ -40,7 +40,7 @@
         <div class="row ">
             <div class="col-sm-4 col-sm-offset-4 ">
 
-                <img src="{{root}}getImage/logo/{{user.currentBusiness.id}}" style="height:100px;width:150px" ng-if="user.currentBusiness.logo.fileName != null">
+                <img src="{{root}}getImage/logo/{{user.currentBusiness.id}}" style="height:100px;width:150px;display:block; margin: auto;" ng-if="user.currentBusiness.logo.fileName != null">
                 <h3>Bill Details for {{getMonth(invoice.month)}} {{invoice.year}}</h3>
                 <span style="font-size:15px; font-weight:100;">Invoice No : </span><span style="font-size:15px;">{{invoice.id}}</span><br>
                 <span style="font-size:15px; font-weight:100;">Customer Name : </span><span style="font-size:15px;">{{user.name}}</span><br>
@@ -80,9 +80,9 @@
 
                 </div>
 
-                <div style="margin-bottom:60px; width:100%; height:auto;" class="row" ng-if="invoice.status != 'Credit' ">
+                <div style=" width:100%; height:auto;" class="row" ng-if="invoice.status != 'Credit' ">
 
-                    <div class="col-md-6">
+                    <div class="" style="text-align:center;">
                         <form id="redirectForm" method="post" action="#">
                             <input type="hidden" name="appId" value="{{invoice.cashFreeAppId}}" />
                             <input type="hidden" name="orderId" value="{{invoice.cashFreeTxId}}" />
@@ -97,14 +97,16 @@
                             <input type="hidden" name="signature" value="{{invoice.cashfreeSignature}}" />
 
                             <input type="submit" style="font-size:25px;width:100%;background-color:#00A6FF;color:white;border:0px;" value="PAY ONLINE">
+                            <p>Using Debit card/Credit card/Netbanking/UPI/Mobile wallets etc</p>
                             <!--<b>Pay >></b>-->
                         </form>
 
                     </div>
                     
-                    OR
+                    <h4 style="text-align:center">OR</h4>
                     
-                    <div class="col-md-6">
+                    
+                    <div class="" style="text-align:center;">
                         <form method="post" action="#" name="paytmForm" id="paytmForm">
                             <input type="hidden" name="MID" value="{{invoice.paytmMid}}">
                             <input type="hidden" name="WEBSITE" value="{{invoice.paytmWebsite}}">
@@ -120,7 +122,7 @@
 
                             <!--<input type="submit" value="" id="paytmButton">-->
 
-                            <input type="image" src="img/paytm_icon.png" alt="PayTm Pay" id="paytmButton">
+                            <input type="image" src="img/paytm_icon.png" alt="PayTm Pay" style="height:24px;" id="paytmButton">
 
                         </form>
 

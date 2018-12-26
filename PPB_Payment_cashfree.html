@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="PayPerBill_style.css?ver=2">
+    <link rel="stylesheet" href="PayPerBill_style.css?ver=3">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
     <style>
@@ -44,23 +44,12 @@
                 <h3>Bill Details for {{getMonth(invoice.month)}} {{invoice.year}}</h3>
                 <span style="font-size:15px; font-weight:100;">Invoice No : </span><span style="font-size:15px;">{{invoice.id}}</span><br>
                 <span style="font-size:15px; font-weight:100;">Customer Name : </span><span style="font-size:15px;">{{user.name}}</span><br>
-                <span style="font-size:15px; font-weight:100;">Vendor Name : </span><span style="font-size:15px;">{{user.currentBusiness.name}}</span>
-
-
-                <hr>
-
-                <span style="font-size:15px;">Invoice amount</span><span style="font-size:15px; float :right">INR {{invoice.amount}}</span><br>
-                <span ng-if="invoice.pendingBalance > 0"><span style="font-size:15px;" >Pending amount</span><span style="font-size:15px; float :right">INR {{invoice.pendingBalance}}</span><br></span>
-                <span ng-if="invoice.creditBalance > 0"><span style="font-size:15px;">Credit amount</span><span style="font-size:15px; float :right">INR {{invoice.creditBalance}}</span><br></span>
-                <span ng-if="invoice.serviceCharge > 0"><span style="font-size:15px;" >Vendor service charges</span><span style="font-size:15px; float :right">INR {{invoice.serviceCharge}}</span><br></span>
-                <span ng-if="invoice.internetFees > 0"><span style="font-size:15px;" >Internet handling fees</span><span style="font-size:15px; float :right">INR {{invoice.internetFees}}</span><br></span>
-
-                <br>
-
-                <span ng-if="invoice.outstandingBalance > 0"><span style="font-size:15px;">Outstanding balance</span><span style="font-size:15px; float :right">INR {{invoice.outstandingBalance}}</span><br></span>
+                <span style="font-size:15px; font-weight:100;">Vendor Name : </span><span style="font-size:15px;">{{user.currentBusiness.name}}</span><br>
+                <span style="font-size:15px; font-weight:100;">Vendor Contact : </span><a href="tel:9623736773"><span style="font-size:15px;">{{user.currentBusiness.owner.phone}}</span></a>
                 
                 <hr>
-                <div ng-if="user.showBillDetails != 'N' && user.currentBusiness.showBillDetails != 'N'">
+
+                <div ng-if="showBillDetails(user)">
                     <span ng-if="invoice.invoiceItems.length > 0"><b>Details</b><hr></span>
                     <span ng-repeat="item in invoice.invoiceItems"><span style="font-size:15px;" >{{item.parentItem.name}} | Qty : {{item.quantity}}</span><span style="font-size:15px; float :right">INR {{item.price}}</span><br><hr></span>
 
@@ -71,6 +60,21 @@
 
                     
                 </div>
+
+                <hr>
+
+                <span ng-if="showBillDetails(user)"><span style="font-size:15px;" >Invoice amount</span><span style="font-size:15px; float :right">INR {{invoice.amount}}</span></span><br>
+                <span ng-if="invoice.pendingBalance > 0 && showBillDetails(user)"><span style="font-size:15px;" >Pending amount</span><span style="font-size:15px; float :right">INR {{invoice.pendingBalance}}</span><br></span>
+                <span ng-if="invoice.creditBalance > 0 && showBillDetails(user)"><span style="font-size:15px;" >Credit amount</span><span style="font-size:15px; float :right">INR {{invoice.creditBalance}}</span><br></span>
+                <span ng-if="invoice.serviceCharge > 0 && showBillDetails(user)"><span style="font-size:15px;">Vendor service charges</span><span style="font-size:15px; float :right">INR {{invoice.serviceCharge}}</span><br></span>
+                <span ng-if="invoice.internetFees > 0"><span style="font-size:15px;" >Internet handling fees</span><span style="font-size:15px; float :right">INR {{invoice.internetFees}}</span><br></span>
+
+                <br>
+
+                <span ng-if="invoice.outstandingBalance > 0"><span style="font-size:15px;">Outstanding balance</span><span style="font-size:15px; float :right">INR {{invoice.outstandingBalance}}</span><br></span>
+                
+                <hr>
+                
 
 
                 <div style="width:100%; background-color:#DCDCDC; margin-top:10px;margin-bottom:5px; padding:5px; border-radius:13px:">

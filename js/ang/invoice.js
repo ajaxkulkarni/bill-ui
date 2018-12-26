@@ -26,6 +26,24 @@ angular.module("app").controller('invoice', function ($scope, userService, $rout
         });
 
     }
+    
+    $scope.showBillDetails = function(user) {
+        if(user == null || user.currentBusiness == null) {
+            return true;
+        }
+        if(user.showBillDetails == 'N') {
+            return false;
+        }
+        if(user.currentBusiness.showBillDetails == 'N') {
+            if(user.showBillDetails != 'Y') {
+                return false;
+            } else {
+                return true;
+            }
+            
+        }
+        return true;
+    }
 
 
     $scope.submitHdfc = function () {

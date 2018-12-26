@@ -21,12 +21,57 @@
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 
     <!-- Plugin CSS -->
-    <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
+    <link rel="stylesheet" href="device-mockups/device-mockups.min.css?ver=2">
 
     <!-- Custom styles for this template -->
     <link href="css/new-age.min.css" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/x-icon" href="img/16.png" />
+
+    <style>
+        /* Style the container with a rounded border, grey background and some padding and margin */
+        
+        .tcontainer {
+            //border: 2px solid #ccc;
+            background-color: #eee;
+            border-radius: 5px;
+            padding: 16px;
+            margin: 16px 0;
+            //box-shadow: 1px 1px;
+        }
+        /* Clear floats after containers */
+        
+        .tcontainer::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        /* Float images inside the container to the left. Add a right margin, and style the image as a circle */
+        
+        .tcontainer img {
+            float: left;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+        /* Increase the font-size of a span element */
+        
+        .tcontainer span {
+            font-size: 20px;
+            margin-right: 15px;
+        }
+        /* Add media queries for responsiveness. This will center both the text and the image inside the container */
+        
+        @media (max-width: 500px) {
+            .tcontainer {
+                text-align: center;
+            }
+            .tcontainer img {
+                margin: auto;
+                float: none;
+                display: block;
+            }
+        }
+    </style>
 
 </head>
 
@@ -63,7 +108,7 @@
             <div class="row h-100">
                 <div class="col-lg-7 my-auto">
                     <div class="header-content mx-auto">
-                        <h1 class="mb-5">New Age app for managing daily Newspaper deliveries, Billing and Payments</h1>
+                        <h1 class="mb-5">New Age app for managing your Billing and Payments</h1>
                         <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Start Now for Free!</a>
                     </div>
                 </div>
@@ -73,7 +118,7 @@
                             <div class="device">
                                 <div class="screen">
                                     <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                                    <img src="img/demo-screen-1.png" class="img-fluid" alt="">
+                                    <img src="vendor/screenshots/payments.png" class="img-fluid" alt="">
                                 </div>
                                 <div class="button">
                                     <!-- You can hook the "home button" to some JavaScript events or just remove it -->
@@ -91,7 +136,7 @@
             <div class="row">
                 <div class="col-md-8 mx-auto">
                     <h2 class="section-heading">Make your life easy</h2>
-                    <p>Our app is a one stop interface for newspaper vendors and customers. It makes life easy when you want to pause delivery, accept bills online or subscribe to a new newspaper. PayPerBill is available on any mobile device! Download now to get started!</p>
+                    <p>Our app is a one stop payment/billing interface for small businesses. PayPerBill makes it super easy to accept bills online and manage your business. Download now to get started!</p>
                     <div class="badges">
                         <a class="badge-link" target="_blank" href="https://play.google.com/store/apps/details?id=com.reso.bill"><img src="img/google-play-badge.svg" alt=""></a>
                         &nbsp; OR scan this QR code &nbsp; <img src="img/payperbill-qr.png">
@@ -118,7 +163,7 @@
                             <div class="device">
                                 <div class="screen">
                                     <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                                    <img src="img/demo-screen-1.png" class="img-fluid" alt="">
+                                    <img src="vendor/screenshots/pending.png" class="img-fluid" alt="">
                                 </div>
                                 <div class="button">
                                     <!-- You can hook the "home button" to some JavaScript events or just remove it -->
@@ -132,32 +177,32 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="feature-item">
-                                    <i class="icon-wallet text-primary"></i>
+                                    <i class="icon-docs text-primary"></i>
                                     <h3>Automated Invoice generation and Payment</h3>
-                                    <p class="text-muted">Auto Generate monthly invoice and make payment online!</p>
+                                    <p class="text-muted">Auto Generate monthly invoice and get paid online!</p>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="feature-item">
                                     <i class="icon-feed text-primary"></i>
-                                    <h3>Daily newspaper delivery tracking</h3>
-                                    <p class="text-muted">Track daily newspaper prices, deliveries and holidays!</p>
+                                    <h3>Activity tracking</h3>
+                                    <p class="text-muted">Track daily activities and orders</p>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="feature-item">
-                                    <i class="icon-screen-smartphone text-primary"></i>
-                                    <h3>Change/pause/cancel Delivery</h3>
-                                    <p class="text-muted">Change subscription or pause newspaper delivery!</p>
+                                    <i class="icon-wallet text-primary"></i>
+                                    <h3>Cash transactions</h3>
+                                    <p class="text-muted">Record your cash payments and avoid paperwork</p>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="feature-item">
                                     <i class="icon-bell text-primary"></i>
-                                    <h3>Upadates and Reminders via sms/mail</h3>
-                                    <p class="text-muted">Get payment reminders , updates about new schemes and magazines!</p>
+                                    <h3>Updates and Reminders via sms/mail/whatsapp</h3>
+                                    <p class="text-muted">Send payment reminders to your customers and get paid on time</p>
                                 </div>
                             </div>
                         </div>
@@ -170,11 +215,107 @@
     <section class="cta">
         <div class="cta-content">
             <div class="container">
-                <h2>Manages Newspapers <br>Online</h2>
-                <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Accept payments <br>Online</h2>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="vendor/logos/Paytm.png" height="100" width="150">
+                            </div>
+                            <div class="col-md-4">
+                                <img src="vendor/logos/google-pay.png" height="100" width="150">
+                            </div>
+                            <div class="col-md-4">
+                                <img src="vendor/logos/PhonePe.png" height="100" width="150">
+                            </div>
+
+                            <div class="col-md-4">
+                                <img src="vendor/logos/MobiKwik.png" height="100" width="150">
+                            </div>
+                            <div class="col-md-4">
+                                <img src="vendor/logos/UPI.png" height="100" width="150">
+                            </div>
+                            <div class="col-md-4">
+                                <img src="vendor/logos/jiomony.png" height="100" width="150">
+                            </div>
+
+                            <div class="col-md-4">
+                                <img src="vendor/logos/airtel.png" height="100" width="150">
+                            </div>
+                            <div class="col-md-4">
+                                <img src="vendor/logos/HDFC.png" height="100" width="150">
+                            </div>
+                            <!--<div class="col-md-4">
+                                <img src="vendor/logos/PhonePe.png" height="100" width="150">
+                            </div>-->
+                        </div>
+
+
+                        <!--<img src="vendor/logos/airtel.png" height="100" width="150">
+                    <img src="vendor/logos/google-pay.png" height="100" width="150">
+                    <img src="vendor/logos/UPI.png" height="100" width="150">
+                    <img src="vendor/logos/jiomony.png" height="100" width="150">
+                    <img src="vendor/logos/PhonePe.png" height="100" width="150">
+                    <img src="vendor/logos/MobiKwik.png" height="100" width="150">
+                    <img src="vendor/logos/HDFC.png" height="100" width="150">-->
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
+                    </div>
+                </div>
+
+
+
+
             </div>
         </div>
         <div class="overlay"></div>
+    </section>
+
+    <section class="">
+        <div class="section-heading text-center">
+
+            <p class="text-muted">Our customers say </p>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="tcontainer">
+                        <img src="vendor/logos/gopi.jpg" alt="Avatar" style="width:90px">
+                        <p><b>Gopichand Khaladkar</b></p>
+                        <p>GK Newspaper agency</p>
+                        <p>PayPerBill really helped me streamline my payments and saved time and cost as I stopped going to customers doorsteps for collecting payment</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="tcontainer">
+                        <img src="vendor/logos/martand.png" alt="Avatar" style="width:90px">
+                        <p><b>Anil Paygude</b></p>
+                        <p>Martand Misal</p>
+                        <p>Not only I get payments from all platforms, I have also marketed my own offers to generate more revenue!</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="tcontainer">
+                        <img src="vendor/logos/mahesh-bhilare.jpg" alt="Avatar" style="width:90px">
+                        <p><b>Mahesh Bhilare</b></p>
+                        <p>Amar Newspaper Agency</p>
+                        <p>I don't go to customers for collection anymore. I get all payments directly into my bank account on just one click!</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+
     </section>
 
     <section class="contact bg-primary" id="contact">

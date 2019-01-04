@@ -5,13 +5,14 @@ angular.module("app").controller('invoice', function ($scope, userService, $rout
 
     var months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    $scope.dataObj = {
-        invoice: {
-            id: $routeParams.id
-        }
-    }
+
 
     $scope.getInvoice = function () {
+        $scope.dataObj = {
+            invoice: {
+                id: $routeParams.id
+            }
+        }
         userService.callService($scope, "sendInvoice").then(function (response) {
             //console.log(response);
             if (response.status == 200) {
@@ -19,6 +20,12 @@ angular.module("app").controller('invoice', function ($scope, userService, $rout
                 $scope.user = response.user;
                 $('#redirectForm').attr('action', $scope.invoice.cashFreePaymentUrl);
                 $("#paytmForm").attr('action', $scope.invoice.paytmUrl);
+
+                if (localStorage.customerSkip != 'Y' && ($scope.user.email == null || $scope.user.email.trim().length == 0 || $scope.user.email.indexOf("payperbill.in") > 0)) {
+                    //No email found for user
+                    $("#userInfoModal").modal('show');
+                }
+
                 //
             } else {
                 alert(response.response);
@@ -26,21 +33,53 @@ angular.module("app").controller('invoice', function ($scope, userService, $rout
         });
 
     }
-    
-    $scope.showBillDetails = function(user) {
-        if(user == null || user.currentBusiness == null) {
+
+    $scope.skipCustomerDetails = function () {
+        if ($scope.skipCustomerInfo) {
+            localStorage.customerSkip = 'Y';
+        }
+
+        $("#userInfoModal").modal('hide');
+    }
+
+    $scope.saveCustomer = function () {
+        console.log("Inside save customer!");
+        $scope.dataObj = {
+            user: {
+                currentSubscription: {
+                    id: $scope.user.id
+                },
+                phone: $scope.user.phone,
+                email: $scope.customerEmail
+            }
+        }
+
+        userService.callService($scope, "updateCustomer").then(function (response) {
+            //console.log(response);
+            $("#userInfoModal").modal('hide');
+            if (response.status == 200) {
+                $scope.getInvoice();
+            } else {
+                alert(response.response);
+            }
+        });
+
+    }
+
+    $scope.showBillDetails = function (user) {
+        if (user == null || user.currentBusiness == null) {
             return true;
         }
-        if(user.showBillDetails == 'N') {
+        if (user.showBillDetails == 'N') {
             return false;
         }
-        if(user.currentBusiness.showBillDetails == 'N') {
-            if(user.showBillDetails != 'Y') {
+        if (user.currentBusiness.showBillDetails == 'N') {
+            if (user.showBillDetails != 'Y') {
                 return false;
             } else {
                 return true;
             }
-            
+
         }
         return true;
     }
@@ -169,7 +208,7 @@ angular.module("app").controller('verifyCoupon', function ($scope, userService) 
     $scope.message = "";
 
     $scope.verify = function () {
-        if($scope.couponCode == null || $scope.phone == null) {
+        if ($scope.couponCode == null || $scope.phone == null) {
             alert("Coupon code and phone number are mandatory!");
             return;
         }
@@ -180,7 +219,7 @@ angular.module("app").controller('verifyCoupon', function ($scope, userService) 
             user: {
                 phone: $scope.phone
             },
-            requestType : "Verify"
+            requestType: "Verify"
         }
         userService.callCustomerService($scope, "redeemScheme").then(function (response) {
             console.log(response);
@@ -209,7 +248,7 @@ angular.module("app").controller('verifyCoupon', function ($scope, userService) 
             user: {
                 phone: $scope.phone
             },
-            requestType : "Redeem"
+            requestType: "Redeem"
         }
         $("#confirmRedeem").modal('hide');
         userService.callCustomerService($scope, "redeemScheme").then(function (response) {

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="PayPerBill_style.css?ver=5">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <style>
+        #paytmButton {}
+    </style>
+
+
+</head>
+
+<body style="font-family: 'Lato', sans-serif;">
+
+
+
+
+    <br>
+
+
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-sm-4 col-sm-offset-4 ">
+
+                <img src="{{root}}getImage/logo/{{user.currentBusiness.id}}" style="height:100px;width:150px;display:block; margin: auto;" ng-if="user.currentBusiness.logo.fileName != null">
+                <h3>Bill Details for {{getMonth(invoice.month)}} {{invoice.year}}</h3>
+                <span style="font-size:15px; font-weight:100;">Invoice No : </span><span style="font-size:15px;">{{invoice.id}}</span><br>
+                <span style="font-size:15px; font-weight:100;">Customer Name : </span><span style="font-size:15px;">{{user.name}}</span><br>
+                <span style="font-size:15px; font-weight:100;">Vendor Name : </span><span style="font-size:15px;">{{user.currentBusiness.name}}</span><br>
+                <span style="font-size:15px; font-weight:100;">Vendor Contact : </span><a href="tel:9623736773"><span style="font-size:15px;">{{user.currentBusiness.owner.phone}}</span></a>
+                
+                <hr>
+
+                <div ng-if="showBillDetails(user)">
+                    <span ng-if="invoice.invoiceItems.length > 0"><b>Details</b><hr></span>
+                    <span ng-repeat="item in invoice.invoiceItems"><span style="font-size:15px;" >{{item.parentItem.name}} | Qty : {{item.quantity}}</span><span style="font-size:15px; float :right">INR {{item.price}}</span><br><hr></span>
+
+
+                    
+                    <!--<span style="font-size:15px; float:right;color:#00A6FF">View Details >></span><br>-->
+                    <!--<hr>-->
+
+                    
+                </div>
+
+                <hr>
+
+                <span ng-if="showBillDetails(user)"><span style="font-size:15px;" >Invoice amount</span><span style="font-size:15px; float :right">INR {{invoice.amount}}</span></span><br>
+                <span ng-if="!showBillDetails(user)"><span style="font-size:15px;" >Invoice amount</span><span style="font-size:15px; float :right">INR {{invoice.payable - invoice.outstandingBalance}}</span></span><br>
+                
+                <span ng-if="invoice.pendingBalance > 0 && showBillDetails(user)"><span style="font-size:15px;" >Pending amount</span><span style="font-size:15px; float :right">INR {{invoice.pendingBalance}}</span><br></span>
+                <span ng-if="invoice.creditBalance > 0 && showBillDetails(user)"><span style="font-size:15px;" >Credit amount</span><span style="font-size:15px; float :right">INR {{invoice.creditBalance}}</span><br></span>
+                <span ng-if="invoice.serviceCharge > 0 && showBillDetails(user)"><span style="font-size:15px;">Vendor service charges</span><span style="font-size:15px; float :right">INR {{invoice.serviceCharge}}</span><br></span>
+                <span ng-if="invoice.internetFees > 0"><span style="font-size:15px;" >Internet handling fees</span><span style="font-size:15px; float :right">INR {{invoice.internetFees}}</span><br></span>
+
+                <br>
+
+                <span ng-if="invoice.outstandingBalance > 0"><span style="font-size:15px;">Outstanding balance</span><span style="font-size:15px; float :right">INR {{invoice.outstandingBalance}}</span><br></span>
+                
+                <hr>
+                
+
+
+                <div style="width:100%; background-color:#DCDCDC; margin-top:10px;margin-bottom:5px; padding:5px; border-radius:13px:">
+                    <span style="font-size:15px;">Net Amount</span><br>
+                    <span style="font-size:20px;">INR {{invoice.payable}}</span>
+
+
+                </div>
+
+                <div style=" width:100%; height:auto;" class="row" ng-if="invoice.status != 'Credit' ">
+
+                    <div class="" style="text-align:center;">
+                        <form id="redirectForm" method="post" action="#">
+                            <input type="hidden" name="appId" value="{{invoice.cashFreeAppId}}" />
+                            <input type="hidden" name="orderId" value="{{invoice.cashFreeTxId}}" />
+                            <input type="hidden" name="orderAmount" value="{{invoice.payable}}" />
+                            <input type="hidden" name="orderCurrency" value="INR" />
+                            <input type="hidden" name="orderNote" value="{{invoice.comments}}" />
+                            <input type="hidden" name="customerName" value="{{user.name}}" />
+                            <input type="hidden" name="customerEmail" value="{{user.email}}" />
+                            <input type="hidden" name="customerPhone" value="{{user.phone}}" />
+                            <input type="hidden" name="returnUrl" value="{{invoice.cashFreeRedirectUrl}}" />
+                            <input type="hidden" name="notifyUrl" value="{{invoice.cashFreeRedirectUrl}}" />
+                            <input type="hidden" name="signature" value="{{invoice.cashfreeSignature}}" />
+                            
+                            <p>Pay with Debit card/Credit card/Netbanking/UPI/Mobile wallets etc</p>
+                            <input type="submit" style="font-size:25px;width:100%;background-color:#00A6FF;color:white;border:0px;" value="PAY ONLINE">
+                            
+                            <!--<b>Pay >></b>-->
+                        </form>
+
+                    </div>
+                    
+                    <h4 style="text-align:center">OR</h4>
+                    
+                    
+                    <div class="" style="text-align:center;">
+                        <form method="post" action="#" name="paytmForm" id="paytmForm">
+                            <input type="hidden" name="MID" value="{{invoice.paytmMid}}">
+                            <input type="hidden" name="WEBSITE" value="{{invoice.paytmWebsite}}">
+                            <input type="hidden" name="ORDER_ID" value="{{invoice.cashFreeTxId}}">
+                            <input type="hidden" name="CUST_ID" value="{{user.id}}">
+                            <input type="hidden" name="MOBILE_NO" value="{{user.phone}}">
+                            <input type="hidden" name="EMAIL" value="{{user.email}}">
+                            <input type="hidden" name="INDUSTRY_TYPE_ID" value="Retail">
+                            <input type="hidden" name="CHANNEL_ID" value="{{invoice.paytmChannel}}">
+                            <input type="hidden" name="TXN_AMOUNT" value="{{invoice.payable}}">
+                            <input type="hidden" name="CALLBACK_URL" value="{{invoice.paytmRedirectUrl}}">
+                            <input type="hidden" name="CHECKSUMHASH" value="{{invoice.paytmChecksum}}">
+
+                            <!--<input type="submit" value="" id="paytmButton">-->
+
+                            <p>Pay With</p> <input type="image" src="img/paytm_icon.png" alt="PayTm Pay" style="height:24px;" id="paytmButton">
+
+                        </form>
+
+
+                    </div>
+
+
+
+                    <!--<p span ng-if="invoice.status == 'Credit'" style="font-size:25px;float:right;color:#009900"><b>Paid</b></p>-->
+
+                </div>
+
+
+                <p span ng-if="invoice.status == 'Credit'" style="font-size:25px;float:right;color:#009900"><b>Paid</b></p>
+
+                
+
+
+            </div>
+        </div>
+        
+        
+        
+        <div class="modal fade" id="userInfoModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Customer information</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Please enter your email to get bill updates on the email as well</p>
+                    <input type="text" class="form-control" id="schemeCost" maxlength="50" placeholder="Your email" ng-model="customerEmail">
+                    <br>
+                    <p><input type="checkbox" ng-model="skipCustomerInfo">Don't show this message again</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" ng-click="saveCustomer()">Save</button>
+                    <button type="button" class="btn btn-default" ng-click="skipCustomerDetails()">Cancel</button>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+        
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -4,8 +4,8 @@ app.config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
   }]);
 
-//var host = "http://localhost:8080/billapp-service";
-var host = "https://payperbill.in:8443/billapp";
+var host = "http://localhost:8080/billapp-service";
+//var host = "https://payperbill.in:8443/billapp";
 var root = host + "/user/";
 var rootAdmin = host + "/admin/"
 var rootCustomer = host + "/customer/"

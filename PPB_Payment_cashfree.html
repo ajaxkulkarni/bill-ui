@@ -23,7 +23,6 @@
 
     <style>
         #paytmButton {}
-
     </style>
 
 
@@ -47,28 +46,26 @@
                 <span style="font-size:15px; font-weight:100;">Customer Name : </span><span style="font-size:15px;">{{user.name}}</span><br>
                 <span style="font-size:15px; font-weight:100;">Vendor Name : </span><span style="font-size:15px;">{{user.currentBusiness.name}}</span><br>
                 <span style="font-size:15px; font-weight:100;">Vendor Contact : </span><a href="tel:{{user.currentBusiness.owner.phone}}"><span style="font-size:15px;">{{user.currentBusiness.owner.phone}}</span></a>
-
+                
                 <hr>
 
                 <div ng-if="showBillDetails(user)">
                     <span ng-if="invoice.invoiceItems.length > 0"><b>Details</b><hr></span>
-                    <span ng-repeat="item in invoice.invoiceItems"><span style="font-size:15px;" >{{item.parentItem.name}} | Qty : {{item.quantity}}</span><span style="font-size:15px; float :right">INR {{item.price}}</span><br>
-                    <hr>
-                    </span>
+                    <span ng-repeat="item in invoice.invoiceItems"><span style="font-size:15px;" >{{item.parentItem.name}} | Qty : {{item.quantity}}</span><span style="font-size:15px; float :right">INR {{item.price}}</span><br><hr></span>
 
 
-
+                    
                     <!--<span style="font-size:15px; float:right;color:#00A6FF">View Details >></span><br>-->
                     <!--<hr>-->
 
-
+                    
                 </div>
 
                 <hr>
 
                 <span ng-if="showBillDetails(user)"><span style="font-size:15px;" >Invoice amount</span><span style="font-size:15px; float :right">INR {{invoice.amount}}</span></span><br>
                 <span ng-if="!showBillDetails(user)"><span style="font-size:15px;" >Invoice amount</span><span style="font-size:15px; float :right">INR {{invoice.payable - invoice.outstandingBalance}}</span></span><br>
-
+                
                 <span ng-if="invoice.pendingBalance > 0 && showBillDetails(user)"><span style="font-size:15px;" >Pending amount</span><span style="font-size:15px; float :right">INR {{invoice.pendingBalance}}</span><br></span>
                 <span ng-if="invoice.creditBalance > 0 && showBillDetails(user)"><span style="font-size:15px;" >Credit amount</span><span style="font-size:15px; float :right">INR {{invoice.creditBalance}}</span><br></span>
                 <span ng-if="invoice.serviceCharge > 0 && showBillDetails(user)"><span style="font-size:15px;">Vendor service charges</span><span style="font-size:15px; float :right">INR {{invoice.serviceCharge}}</span><br></span>
@@ -77,9 +74,9 @@
                 <br>
 
                 <span ng-if="invoice.outstandingBalance > 0 && invoice.status != 'Credit'"><span style="font-size:15px;">Outstanding balance</span><span style="font-size:15px; float :right">INR {{invoice.outstandingBalance}}</span><br></span>
-
+                
                 <hr>
-
+                
 
 
                 <div ng-if="invoice.status != 'Credit'" style="width:100%; background-color:#DCDCDC; margin-top:10px;margin-bottom:5px; padding:5px; border-radius:13px:">
@@ -88,7 +85,7 @@
 
 
                 </div>
-
+                
                 <div ng-if="invoice.status == 'Credit'" style="width:100%; background-color:#DCDCDC; margin-top:10px;margin-bottom:5px; padding:5px; border-radius:13px:">
                     <span style="font-size:15px;">Paid Amount</span><br>
                     <span style="font-size:20px;">INR {{invoice.paidAmount}}</span>
@@ -111,18 +108,18 @@
                             <input type="hidden" name="returnUrl" value="{{invoice.cashFreeRedirectUrl}}" />
                             <input type="hidden" name="notifyUrl" value="{{invoice.cashFreeRedirectUrl}}" />
                             <input type="hidden" name="signature" value="{{invoice.cashfreeSignature}}" />
-
+                            
                             <p>Pay with Debit card/Credit card/Netbanking/UPI/Mobile wallets etc</p>
-                            <input ng-click="payCashfree()" type="button" style="font-size:25px;width:100%;background-color:#00A6FF;color:white;border:0px;" value="PAY ONLINE">
-
+                            <input type="submit" style="font-size:25px;width:100%;background-color:#00A6FF;color:white;border:0px;" value="PAY ONLINE">
+                            
                             <!--<b>Pay >></b>-->
                         </form>
 
                     </div>
-
+                    
                     <h4 style="text-align:center">OR</h4>
-
-
+                    
+                    
                     <div class="" style="text-align:center;">
                         <form method="post" action="#" name="paytmForm" id="paytmForm">
                             <input type="hidden" name="MID" value="{{invoice.paytmMid}}">
@@ -139,11 +136,11 @@
 
                             <!--<input type="submit" value="" id="paytmButton">-->
 
-
+                            <p>Pay With</p> <input type="image" src="img/paytm_icon.png" alt="PayTm Pay" style="height:24px;" id="paytmButton">
 
                         </form>
 
-                        <p>Pay With</p> <input ng-click="payPaytm()" type="image" src="img/paytm_icon.png" alt="PayTm Pay" style="height:24px;" id="paytmButton">
+
                     </div>
 
 
@@ -160,41 +157,40 @@
 
             </div>
         </div>
-
-
-
+        
+        
+        
         <div class="modal fade" id="userInfoModal" role="dialog">
-            <div class="modal-dialog">
+        <div class="modal-dialog">
 
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Customer information</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Please enter your email to get bill updates on the email as well</p>
-                        <input type="text" class="form-control" id="schemeCost" maxlength="50" placeholder="Your email" ng-model="customerEmail">
-                        <br>
-                        <p><input type="checkbox" ng-model="skipCustomerInfo">Don't show this message again</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn" ng-click="saveCustomer()">Save</button>
-                        <button type="button" class="btn btn-default" ng-click="skipCustomerDetails()">Cancel</button>
-
-                    </div>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Customer information</h4>
                 </div>
-
+                <div class="modal-body">
+                    <p>Please enter your email to get bill updates on the email as well</p>
+                    <input type="text" class="form-control" id="schemeCost" maxlength="50" placeholder="Your email" ng-model="customerEmail">
+                    <br>
+                    <p><input type="checkbox" ng-model="skipCustomerInfo">Don't show this message again</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" ng-click="saveCustomer()">Save</button>
+                    <button type="button" class="btn btn-default" ng-click="skipCustomerDetails()">Cancel</button>
+                    
+                </div>
             </div>
-        </div>
 
+        </div>
+    </div>
+        
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-
 </body>
 
 </html>

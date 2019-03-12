@@ -1,4 +1,4 @@
-angular.module("app").controller('main', function($scope){
+angular.module("app").controller('main', function ($scope) {
     console.log("Home loaded ..");
 });
 
@@ -46,17 +46,29 @@ angular.module("app").controller('invoice', function ($scope, userService, $rout
 
         $("#userInfoModal").modal('hide');
     }
-    
+
     var submitting = false;
-    
-    $scope.payCashfree = function() {
-        if(submitting) {
+
+    $scope.payCashfree = function () {
+        if (submitting) {
             console.log("Already submitting ..");
-           return; 
+            return;
         }
         //alert("Submitting ..");
         submitting = true;
         $("#redirectForm").submit();
+    }
+
+    var paytmSubmitting = false;
+
+    $scope.payPaytm = function () {
+        if (paytmSubmitting) {
+            console.log("Already submitting paytm ..");
+            return;
+        }
+        //alert("Submitting ..");
+        paytmSubmitting = true;
+        $("#paytmForm").submit();
     }
 
     $scope.saveCustomer = function () {

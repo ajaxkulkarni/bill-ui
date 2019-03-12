@@ -46,6 +46,18 @@ angular.module("app").controller('invoice', function ($scope, userService, $rout
 
         $("#userInfoModal").modal('hide');
     }
+    
+    var submitting = false;
+    
+    $scope.payCashfree = function() {
+        if(submitting) {
+            console.log("Already submitting ..");
+           return; 
+        }
+        //alert("Submitting ..");
+        submitting = true;
+        $("#redirectForm").submit();
+    }
 
     $scope.saveCustomer = function () {
         console.log("Inside save customer!");

@@ -50,24 +50,28 @@ angular.module("app").controller('invoice', function ($scope, userService, $rout
     var submitting = false;
 
     $scope.payCashfree = function () {
+        console.log("Paying with cashfree ...");
         if (submitting) {
             console.log("Already submitting ..");
             return;
         }
         //alert("Submitting ..");
         submitting = true;
+        console.log("Redirecting ...");
         $("#redirectForm").submit();
     }
 
     var paytmSubmitting = false;
 
     $scope.payPaytm = function () {
+        console.log("Paying with paytm ...");
         if (paytmSubmitting) {
             console.log("Already submitting paytm ..");
             return;
         }
         //alert("Submitting ..");
         paytmSubmitting = true;
+        console.log("Redirecting ...");
         $("#paytmForm").submit();
     }
 

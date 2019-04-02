@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="PayPerBill_style.css?ver=8">
+    <link rel="stylesheet" href="PayPerBill_style.css?ver=13">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
     <style>
@@ -142,7 +142,7 @@
 
                         </form>
 
-                        <p>Pay With</p> <input type="image" ng-click="payPaytm()" src="img/paytm_icon.png" alt="PayTm Pay" style="height:24px;" id="paytmButton">
+                        <!--<p>Pay With</p>--> <input type="image" ng-click="payPaytm()" src="img/paytm_icon.png" alt="PayTm Pay" style="height:36px;" id="paytmButton">
                         
                     </div>
 
@@ -156,6 +156,9 @@
                 <p span ng-if="invoice.status == 'Credit'" style="font-size:25px;float:right;color:#009900"><b>Paid</b></p>
 
                 <!--<a href="upi://pay?pa=ajinkyashiva@okaxis&pn=ajinkya&mc=0000&tid=cxnkjcnkjdfdvjndkjfvn&tr={{invoice.cashFreeTxId}}&tn=testing&am=10&mam=null&cu=INR&url=https://0381c6cf.ngrok.io/billapp-serrvice/user/upi/paymentResult">UPI Pay</a>-->
+                
+                <hr>
+                <p>Version 13 &copy; Resoneuronance Software Solutions Pvt Ltd.</p>
 
 
             </div>

@@ -3,458 +3,516 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <title>PayPerBill</title>
+<title>PayPerBill</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
-    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+<!-- Custom fonts for this template -->
+<link rel="stylesheet"
+	href="vendor/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="vendor/simple-line-icons/css/simple-line-icons.css">
+<link href="https://fonts.googleapis.com/css?family=Lato"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Muli"
+	rel="stylesheet">
 
-    <!-- Plugin CSS -->
-    <link rel="stylesheet" href="device-mockups/device-mockups.min.css?ver=2">
+<!-- Plugin CSS -->
+<link rel="stylesheet"
+	href="device-mockups/device-mockups.min.css?ver=2">
 
-    <!-- Custom styles for this template -->
-    <link href="css/new-age.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="css/new-age.min.css" rel="stylesheet">
 
-    <link rel="shortcut icon" type="image/x-icon" href="img/16.png" />
+<link rel="shortcut icon" type="image/x-icon" href="img/16.png" />
 
-    <style>
-        /* Style the container with a rounded border, grey background and some padding and margin */
-        
-        .tcontainer {
-            //border: 2px solid #ccc;
-            background-color: #eee;
-            border-radius: 5px;
-            padding: 16px;
-            margin: 16px 0;
-            //box-shadow: 1px 1px;
-        }
-        /* Clear floats after containers */
-        
-        .tcontainer::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-        /* Float images inside the container to the left. Add a right margin, and style the image as a circle */
-        
-        .tcontainer img {
-            float: left;
-            margin-right: 20px;
-            border-radius: 50%;
-        }
-        /* Increase the font-size of a span element */
-        
-        .tcontainer span {
-            font-size: 20px;
-            margin-right: 15px;
-        }
-        /* Add media queries for responsiveness. This will center both the text and the image inside the container */
-        
-        @media (max-width: 500px) {
-            .tcontainer {
-                text-align: center;
-            }
-            .tcontainer img {
-                margin: auto;
-                float: none;
-                display: block;
-            }
-        }
-    </style>
+<style>
+/* Style the container with a rounded border, grey background and some padding and margin */
+.tcontainer { //
+	border: 2px solid #ccc;
+	background-color: #eee;
+	border-radius: 5px;
+	padding: 16px;
+	margin: 16px 0; //
+	box-shadow: 1px 1px;
+}
+/* Clear floats after containers */
+.tcontainer::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+/* Float images inside the container to the left. Add a right margin, and style the image as a circle */
+.tcontainer img {
+	float: left;
+	margin-right: 20px;
+	border-radius: 50%;
+}
+/* Increase the font-size of a span element */
+.tcontainer span {
+	font-size: 20px;
+	margin-right: 15px;
+}
+
+/* How it works button custom styling */
+.how-it-works-btn {
+	background-color: #fdcc52;
+	margin: auto;
+	margin-top: 96px;
+}
+/* Add media queries for responsiveness. This will center both the text and the image inside the container */
+@media ( max-width : 500px) {
+	.tcontainer {
+		text-align: center;
+	}
+	.tcontainer img {
+		margin: auto;
+		float: none;
+		display: block;
+	}
+}
+</style>
 
 </head>
 
 <body id="page-top">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <img src="img/16.png" height="50" width="80">
-        <div class="container">
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
+		id="mainNav">
+		<img src="img/16.png" height="50" width="80">
+		<div class="container">
 
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">PayPerBill</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#download">Download</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+			<a class="navbar-brand js-scroll-trigger" href="#page-top">PayPerBill</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				Menu <i class="fa fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="#download">Download</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="#features">Features</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="#contact">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-    <header class="masthead">
-        <div class="container h-100">
-            <div class="row h-100">
-                <div class="col-lg-7 my-auto">
-                    <div class="header-content mx-auto">
-                        <h1 class="mb-5">New Age app for managing your Billing and Payments</h1>
-                        <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Start Now for Free!</a>
-                    </div>
-                </div>
-                <div class="col-lg-5 my-auto">
-                    <div class="device-container">
-                        <div class="device-mockup iphone6_plus portrait white">
-                            <div class="device">
-                                <div class="screen">
-                                    <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                                    <img src="vendor/screenshots/payments.png" class="img-fluid" alt="">
-                                </div>
-                                <div class="button">
-                                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+	<header class="masthead">
+		<div class="container h-100">
+			<div class="row h-100">
+				<div class="col-lg-7 my-auto">
+					<div class="header-content mx-auto">
+						<h1 class="mb-5">New Age app for managing your Billing and
+							Payments</h1>
+						<a href="#download"
+							class="btn btn-outline btn-xl js-scroll-trigger">Start Now
+							for Free!</a>
+					</div>
+				</div>
+				<div class="col-lg-5 my-auto">
+					<div class="device-container">
+						<div class="device-mockup iphone6_plus portrait white">
+							<div class="device">
+								<div class="screen">
+									<!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+									<img src="vendor/screenshots/payments.png" class="img-fluid"
+										alt="">
+								</div>
+								<div class="button">
+									<!-- You can hook the "home button" to some JavaScript events or just remove it -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
-    <section class="download bg-primary text-center" id="download">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <h2 class="section-heading">Make your life easy</h2>
-                    <p>Our app is a one stop payment/billing interface for small businesses. PayPerBill makes it super easy to accept bills online and manage your business. Download now to get started!</p>
-                    <div class="badges">
-                        <a class="badge-link" target="_blank" href="https://play.google.com/store/apps/details?id=com.reso.bill"><img src="img/google-play-badge.svg" alt=""></a>
-                        &nbsp; OR scan this QR code &nbsp; <img src="img/payperbill-qr.png">
-                        <!--<a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>-->
-                    </div>
+	<section class="download bg-primary text-center" id="download">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 mx-auto">
+					<h2 class="section-heading">Make your life easy</h2>
+					<p>Our app is a one stop payment/billing interface for small
+						businesses. PayPerBill makes it super easy to accept bills online
+						and manage your business. Download now to get started!</p>
+					<div class="badges">
+						<a class="badge-link" target="_blank"
+							href="https://play.google.com/store/apps/details?id=com.reso.bill"><img
+							src="img/google-play-badge.svg" alt=""></a> &nbsp; OR scan this
+						QR code &nbsp; <img src="img/payperbill-qr.png">
+						<!--<a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>-->
+					</div>
 
 
-                </div>
-            </div>
-        </div>
-    </section>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-heading text-center">
-                <h2>Easy interface for Everyone</h2>
-                <p class="text-muted">Check out what you can do with this app!</p>
-                <hr>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 my-auto">
-                    <div class="device-container">
-                        <div class="device-mockup iphone6_plus portrait white">
-                            <div class="device">
-                                <div class="screen">
-                                    <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                                    <img src="vendor/screenshots/pending.png" class="img-fluid" alt="">
-                                </div>
-                                <div class="button">
-                                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8 my-auto">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="feature-item">
-                                    <i class="icon-docs text-primary"></i>
-                                    <h3>Automated Invoice generation and Payment</h3>
-                                    <p class="text-muted">Auto Generate monthly invoice and get paid online!</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="feature-item">
-                                    <i class="icon-feed text-primary"></i>
-                                    <h3>Activity tracking</h3>
-                                    <p class="text-muted">Track daily activities and orders</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="feature-item">
-                                    <i class="icon-wallet text-primary"></i>
-                                    <h3>Cash transactions</h3>
-                                    <p class="text-muted">Record your cash payments and avoid paperwork</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="feature-item">
-                                    <i class="icon-bell text-primary"></i>
-                                    <h3>Updates and Reminders via sms/mail/whatsapp</h3>
-                                    <p class="text-muted">Send payment reminders to your customers and get paid on time</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<section class="features" id="features">
+		<div class="container">
+			<div class="section-heading text-center">
+				<h2>Easy interface for Everyone</h2>
+				<p class="text-muted">Check out what you can do with this app!</p>
+				<hr>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 my-auto">
+					<div class="device-container">
+						<div class="device-mockup iphone6_plus portrait white">
+							<div class="device">
+								<div class="screen">
+									<!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+									<img src="vendor/screenshots/pending.png" class="img-fluid"
+										alt="">
+								</div>
+								<div class="button">
+									<!-- You can hook the "home button" to some JavaScript events or just remove it -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8 my-auto">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="feature-item">
+									<i class="icon-docs text-primary"></i>
+									<h3>Automated Invoice generation and Payment</h3>
+									<p class="text-muted">Auto Generate monthly invoice and get
+										paid online!</p>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="feature-item">
+									<i class="icon-feed text-primary"></i>
+									<h3>Activity tracking</h3>
+									<p class="text-muted">Track daily activities and orders</p>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="feature-item">
+									<i class="icon-wallet text-primary"></i>
+									<h3>Cash transactions</h3>
+									<p class="text-muted">Record your cash payments and avoid
+										paperwork</p>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="feature-item">
+									<i class="icon-bell text-primary"></i>
+									<h3>Updates and Reminders via sms/mail/whatsapp</h3>
+									<p class="text-muted">Send payment reminders to your
+										customers and get paid on time</p>
+								</div>
+							</div>
+						</div>
 
-    <section class="cta">
-        <div class="cta-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2>Accept payments <br>Online</h2>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img src="vendor/logos/Paytm.png" height="100" width="150">
-                            </div>
-                            <div class="col-md-4">
-                                <img src="vendor/logos/google-pay.png" height="100" width="150">
-                            </div>
-                            <div class="col-md-4">
-                                <img src="vendor/logos/PhonePe.png" height="100" width="150">
-                            </div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 my-auto" style="text-align: center"> 
+					<a href="#"
+						class="btn btn-outline btn-xl js-scroll-trigger how-it-works-btn">How
+						It Works?</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-                            <div class="col-md-4">
-                                <img src="vendor/logos/MobiKwik.png" height="100" width="150">
-                            </div>
-                            <div class="col-md-4">
-                                <img src="vendor/logos/UPI.png" height="100" width="150">
-                            </div>
-                            <div class="col-md-4">
-                                <img src="vendor/logos/jiomony.png" height="100" width="150">
-                            </div>
+	<section class="cta">
+		<div class="cta-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h2>
+							Accept payments <br>Online
+						</h2>
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+							<div class="col-md-4">
+								<img src="vendor/logos/Paytm.png" height="100" width="150">
+							</div>
+							<div class="col-md-4">
+								<img src="vendor/logos/google-pay.png" height="100" width="150">
+							</div>
+							<div class="col-md-4">
+								<img src="vendor/logos/PhonePe.png" height="100" width="150">
+							</div>
 
-                            <div class="col-md-4">
-                                <img src="vendor/logos/airtel.png" height="100" width="150">
-                            </div>
-                            <div class="col-md-4">
-                                <img src="vendor/logos/HDFC.png" height="100" width="150">
-                            </div>
-                            <!--<div class="col-md-4">
+							<div class="col-md-4">
+								<img src="vendor/logos/MobiKwik.png" height="100" width="150">
+							</div>
+							<div class="col-md-4">
+								<img src="vendor/logos/UPI.png" height="100" width="150">
+							</div>
+							<div class="col-md-4">
+								<img src="vendor/logos/jiomony.png" height="100" width="150">
+							</div>
+
+							<div class="col-md-4">
+								<img src="vendor/logos/airtel.png" height="100" width="150">
+							</div>
+							<div class="col-md-4">
+								<img src="vendor/logos/HDFC.png" height="100" width="150">
+							</div>
+							<!--<div class="col-md-4">
                                 <img src="vendor/logos/PhonePe.png" height="100" width="150">
                             </div>-->
-                        </div>
+						</div>
 
 
-                        <!--<img src="vendor/logos/airtel.png" height="100" width="150">
+						<!--<img src="vendor/logos/airtel.png" height="100" width="150">
                     <img src="vendor/logos/google-pay.png" height="100" width="150">
                     <img src="vendor/logos/UPI.png" height="100" width="150">
                     <img src="vendor/logos/jiomony.png" height="100" width="150">
                     <img src="vendor/logos/PhonePe.png" height="100" width="150">
                     <img src="vendor/logos/MobiKwik.png" height="100" width="150">
                     <img src="vendor/logos/HDFC.png" height="100" width="150">-->
-                    </div>
-                </div>
-                <br/>
-                <div class="row">
-                    <div class="col-md-12">
-                        <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
-                    </div>
-                </div>
+					</div>
+				</div>
+				<br />
+				<div class="row">
+					<div class="col-md-12">
+						<a href="#contact"
+							class="btn btn-outline btn-xl js-scroll-trigger">Let's Get
+							Started!</a>
+					</div>
+				</div>
 
 
 
 
-            </div>
-        </div>
-        <div class="overlay"></div>
-    </section>
+			</div>
+		</div>
+		<div class="overlay"></div>
+	</section>
 
-    <section class="">
-        <div class="section-heading text-center">
+	<section class="">
+		<div class="section-heading text-center">
 
-            <p class="text-muted">Our customers say </p>
-            <hr>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="tcontainer">
-                        <img src="vendor/logos/gopi.jpg" alt="Avatar" style="width:90px">
-                        <p><b>Gopichand Khaladkar</b></p>
-                        <p>GK Newspaper agency</p>
-                        <p>PayPerBill really helped me streamline my payments and saved time and cost as I stopped going to customers doorsteps for collecting payment</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="tcontainer">
-                        <img src="vendor/logos/martand.png" alt="Avatar" style="width:90px">
-                        <p><b>Anil Paygude</b></p>
-                        <p>Martand Misal</p>
-                        <p>Not only I get payments from all platforms, I have also marketed my own offers to generate more revenue!</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="tcontainer">
-                        <img src="vendor/logos/mahesh-bhilare.jpg" alt="Avatar" style="width:90px">
-                        <p><b>Mahesh Bhilare</b></p>
-                        <p>Amar Newspaper Agency</p>
-                        <p>I don't go to customers for collection anymore. I get all payments directly into my bank account on just one click!</p>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
+			<p class="text-muted">Our customers say</p>
+			<hr>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="tcontainer">
+						<img src="vendor/logos/gopi.jpg" alt="Avatar" style="width: 90px">
+						<p>
+							<b>Gopichand Khaladkar</b>
+						</p>
+						<p>GK Newspaper agency</p>
+						<p>PayPerBill really helped me streamline my payments and
+							saved time and cost as I stopped going to customers doorsteps for
+							collecting payment</p>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="tcontainer">
+						<img src="vendor/logos/martand.png" alt="Avatar"
+							style="width: 90px">
+						<p>
+							<b>Anil Paygude</b>
+						</p>
+						<p>Martand Misal</p>
+						<p>Not only I get payments from all platforms, I have also
+							marketed my own offers to generate more revenue!</p>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="tcontainer">
+						<img src="vendor/logos/mahesh-bhilare.jpg" alt="Avatar"
+							style="width: 90px">
+						<p>
+							<b>Mahesh Bhilare</b>
+						</p>
+						<p>Amar Newspaper Agency</p>
+						<p>I don't go to customers for collection anymore. I get all
+							payments directly into my bank account on just one click!</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
 
 
-    </section>
+	</section>
 
-    <section class="contact bg-primary" id="contact">
-        <section id="contact">
-            <div class="container">
-                <div class="row">
-                    <div class=" text-center">
-                        <h2 class="section-heading">Any queries?</h2>
-                        <hr class="primary">
-                        <p>If you have any questions or doubts regarding PayPerBill, give us a call. We would be glad to answer you. Or shoot us an email.</p>
-                    </div>
-                    <div class="col-lg-4 col-lg-offset-2 text-center">
-                        <i class="fa fa-phone fa-3x wow bounceIn"></i>
-                        <p><a href="tel:9623736773" style="color: black">+919623736773</a></p>
-                    </div>
-                    <div class="col-lg-4 text-center">
-                        <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                        <p><a href="mailto:help@payperbill.in" style="color: black">help@payperbill.in</a></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="container">
-            <h2>We
-                <i class="fa fa-heart"></i> new friends!</h2>
-            <ul class="list-inline list-social">
-                <!--<li class="list-inline-item social-twitter">
+	<section class="contact bg-primary" id="contact">
+		<section id="contact">
+			<div class="container">
+				<div class="row">
+					<div class=" text-center">
+						<h2 class="section-heading">Any queries?</h2>
+						<hr class="primary">
+						<p>If you have any questions or doubts regarding PayPerBill,
+							give us a call. We would be glad to answer you. Or shoot us an
+							email.</p>
+					</div>
+					<div class="col-lg-4 col-lg-offset-2 text-center">
+						<i class="fa fa-phone fa-3x wow bounceIn"></i>
+						<p>
+							<a href="tel:9623736773" style="color: black">+919623736773</a>
+						</p>
+					</div>
+					<div class="col-lg-4 text-center">
+						<i class="fa fa-envelope-o fa-3x wow bounceIn"
+							data-wow-delay=".1s"></i>
+						<p>
+							<a href="mailto:help@payperbill.in" style="color: black">help@payperbill.in</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="container">
+			<h2>
+				We <i class="fa fa-heart"></i> new friends!
+			</h2>
+			<ul class="list-inline list-social">
+				<!--<li class="list-inline-item social-twitter">
                     <a href="#">
                         <i class="fa fa-twitter"></i>
                     </a>
                 </li>-->
-                <li class="list-inline-item social-facebook">
-                    <a href="https://www.facebook.com/payperbill/" target="_blank">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                </li>
-                <!--<li class="list-inline-item social-google-plus">
+				<li class="list-inline-item social-facebook"><a
+					href="https://www.facebook.com/payperbill/" target="_blank"> <i
+						class="fa fa-facebook"></i>
+				</a></li>
+				<!--<li class="list-inline-item social-google-plus">
                     <a href="#">
                         <i class="fa fa-google-plus"></i>
                     </a>
                 </li>-->
-            </ul>
-        </div>
-    </section>
+			</ul>
+		</div>
+	</section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; PayPerBill 2018<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>. All Rights Reserved.</p>
-            <p>&copy; Resoneuronance Software Solutions Pvt Ltd. All Rights Reserved.</p>
-            <ul class="list-inline">
-                <li class="list-inline-item">
-                    <a href="privacy.html">Privacy</a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="terms.html">Terms</a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#">FAQ</a>
-                </li>
-            </ul>
-        </div>
-    </footer>
+	<footer>
+		<div class="container">
+			<p>
+				&copy; PayPerBill 2018
+				<script>
+					new Date().getFullYear() > 2010
+							&& document.write("-" + new Date().getFullYear());
+				</script>
+				. All Rights Reserved.
+			</p>
+			<p>&copy; Resoneuronance Software Solutions Pvt Ltd. All Rights
+				Reserved.</p>
+			<ul class="list-inline">
+				<li class="list-inline-item"><a href="privacy.html">Privacy</a>
+				</li>
+				<li class="list-inline-item"><a href="terms.html">Terms</a></li>
+				<li class="list-inline-item"><a href="#">FAQ</a></li>
+			</ul>
+		</div>
+	</footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<!-- Plugin JavaScript -->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="js/new-age.min.js"></script>
+	<!-- Custom scripts for this template -->
+	<script src="js/new-age.min.js"></script>
 
-    <!-- WhatsHelp.io widget -->
-    <script type="text/javascript">
-        (function() {
-            var options = {
-                whatsapp: "+919623736773", // WhatsApp number
-                call_to_action: "Message us", // Call to action
-                position: "right", // Position may be 'right' or 'left'
-            };
-            var proto = document.location.protocol,
-                host = "whatshelp.io",
-                url = proto + "//static." + host;
-            var s = document.createElement('script');
-            s.type = 'text/javascript';
-            s.async = true;
-            s.src = url + '/widget-send-button/js/init.js';
-            s.onload = function() {
-                WhWidgetSendButton.init(host, proto, options);
-            };
-            var x = document.getElementsByTagName('script')[0];
-            x.parentNode.insertBefore(s, x);
-        })();
-    </script>
-    <!-- /WhatsHelp.io widget -->
+	<!-- WhatsHelp.io widget -->
+	<script type="text/javascript">
+		(function() {
+			var options = {
+				whatsapp : "+919623736773", // WhatsApp number
+				call_to_action : "Message us", // Call to action
+				position : "right", // Position may be 'right' or 'left'
+			};
+			var proto = document.location.protocol, host = "whatshelp.io", url = proto
+					+ "//static." + host;
+			var s = document.createElement('script');
+			s.type = 'text/javascript';
+			s.async = true;
+			s.src = url + '/widget-send-button/js/init.js';
+			s.onload = function() {
+				WhWidgetSendButton.init(host, proto, options);
+			};
+			var x = document.getElementsByTagName('script')[0];
+			x.parentNode.insertBefore(s, x);
+		})();
+	</script>
+	<!-- /WhatsHelp.io widget -->
 
-    <!-- Facebook Pixel Code -->
-    <script>
-        ! function(f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function() {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '268633003468869');
-        fbq('track', 'PageView');
-    </script>
-    <noscript>
- <img height="1" width="1" 
-src="https://www.facebook.com/tr?id=268633003468869&ev=PageView
-&noscript=1"/>
-</noscript>
-    <!-- End Facebook Pixel Code -->
+	<!-- Facebook Pixel Code -->
+	<script>
+		!function(f, b, e, v, n, t, s) {
+			if (f.fbq)
+				return;
+			n = f.fbq = function() {
+				n.callMethod ? n.callMethod.apply(n, arguments) : n.queue
+						.push(arguments)
+			};
+			if (!f._fbq)
+				f._fbq = n;
+			n.push = n;
+			n.loaded = !0;
+			n.version = '2.0';
+			n.queue = [];
+			t = b.createElement(e);
+			t.async = !0;
+			t.src = v;
+			s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window, document, 'script',
+				'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '268633003468869');
+		fbq('track', 'PageView');
+	</script>
+	<noscript>
+		<img height="1" width="1"
+			src="https://www.facebook.com/tr?id=268633003468869&ev=PageView
+&noscript=1" />
+	</noscript>
+	<!-- End Facebook Pixel Code -->
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130706784-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async
+		src="https://www.googletagmanager.com/gtag/js?id=UA-130706784-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
 
-        gtag('config', 'UA-130706784-1');
-    </script>
+		gtag('config', 'UA-130706784-1');
+	</script>
 
 
 </body>
